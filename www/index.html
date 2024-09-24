@@ -131,19 +131,17 @@
             <b id="ccc-vote-count">0</b>
           </div>
         </div>
-        <!-- Add some JavaScript to handle the clicks and post to the blob store API function -->
-      </section>
-
-      <script>
-        const button = document.getElementById('ccc-vote');
-        const count = document.getElementById('ccc-vote-count');
-        button.addEventListener('click', async (event) => {
-          const response = await fetch('/api/count', {
-            method: 'POST',
+        <script>
+          const button = document.getElementById('ccc-vote');
+          const count = document.getElementById('ccc-vote-count');
+          button.addEventListener('click', async (event) => {
+            const response = await fetch('/api/count', {
+              method: 'POST',
+            });
+            count.textContent = await response.text();
           });
-          count.textContent = await response.text();
-        });
-      </script>
+        </script>
+      </section>
 
       <netlify-edge-include href="https://compose-challenge.netlify.app/partials/more-info"></netlify-edge-include>
 
